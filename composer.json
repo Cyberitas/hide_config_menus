@@ -1,0 +1,14 @@
+{
+  "name": "cyberitas/hide_config_menus",
+  "type": "drupal-module",
+  "description": "Hides common configuration menus on sites where configuration is VCS managed in YML",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://github.com/Cyberitas/hide_config_menus",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "support": {
+    "issues": "https://github.com/Cyberitas/hide_config_menus/issues",
+    "source": "https://github.com/Cyberitas/hide_config_menus"
+  }
+}

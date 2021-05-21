@@ -1,0 +1,43 @@
+/**
+ * Reduce menu availability in higher environments to configurable items
+ * Implements hook_preprocess_hook().
+ *
+ * @inheritdoc
+ */
+function hide_config_menus_preprocess_menu(&$variables) {
+
+  $hide_configuration_menu = \Drupal\Core\Site\Settings::get('hide_configuration_menu', false);
+  if( $hide_configuration_menu ) {
+    if (isset($variables['menu_name']) && $variables['menu_name'] === 'admin') {
+      foreach ($variables['items'] as $key => $item) {
+
+        // Remove extend module configuration menu
+        if ($key == 'system.modules_list') {
+          unset($variables['items'][$key]);
+        }
+
+        if ($key == 'system.themes_page') {
+          unset($variables['items'][$key]);
+        }
+
+        if ($key == 'system.admin_config') {
+          if (isset($variables['items'][$key]['below']['system.admin_config_content']['below']['filter.admin_overview'])) unset($variables['items'][$key]['below']['system.admin_config_content']['below']['filter.admin_overview']);
+          if (isset($variables['items'][$key]['below']['system.admin_config_content']['below']['autosave_form.admin_settings'])) unset($variables['items'][$key]['below']['system.admin_config_content']['below']['autosave_form.admin_settings']);
+          if (isset($variables['items'][$key]['below']['system.admin_config_content']['below']['entity.entity_browser.collection'])) unset($variables['items'][$key]['below']['system.admin_config_content']['below']['entity.entity_browser.collection']);
+          if (isset($variables['items'][$key]['below']['system.admin_config_content']['below']['entity.embed_button.collection'])) unset($variables['items'][$key]['below']['system.admin_config_content']['below']['entity.embed_button.collection']);
+        }
+
+        if ($key == 'system.admin_structure') {
+          if (isset($variables['items'][$key]['below']['entity.node_type.collection'])) unset($variables['items'][$key]['below']['entity.node_type.collection']);
+          if (isset($variables['items'][$key]['below']['field_ui.display_mode'])) unset($variables['items'][$key]['below']['field_ui.display_mode']);
+          if (isset($variables['items'][$key]['below']['entity.media_type.collection'])) unset($variables['items'][$key]['below']['entity.media_type.collection']);
+          if (isset($variables['items'][$key]['below']['entity.paragraphs_type.collection'])) unset($variables['items'][$key]['below']['entity.paragraphs_type.collection']);
+          if (isset($variables['items'][$key]['below']['entity.view.collection'])) unset($variables['items'][$key]['below']['entity.view.collection']);
+          if (isset($variables['items'][$key]['below']['block.admin_display']['below']['admin_toolbar_tools.extra_links:entity.block_content_type.collection'])) unset($variables['items'][$key]['below']['block.admin_display']['below']['admin_toolbar_tools.extra_links:entity.block_content_type.collection']);
+        }
+
+      }
+    }
+  }
+}
+
