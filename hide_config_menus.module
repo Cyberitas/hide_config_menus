@@ -1,3 +1,5 @@
+<?php
+
 /**
  * Reduce menu availability in higher environments to configurable items
  * Implements hook_preprocess_hook().
