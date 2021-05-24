@@ -7,3 +7,4 @@ author: Cyberitas Technologies, LLC.
 version: '2.0.0'
 dependencies:
     - node
+    - drupal:block
