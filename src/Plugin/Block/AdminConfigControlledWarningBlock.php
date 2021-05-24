@@ -86,7 +86,7 @@ class AdminConfigControlledWarningBlock extends BlockBase {
               <h2 class="visually-hidden">Warning message</h2>
               WARNING! Using this page may lead to data-loss.
               This page modifies configuration items that are VCS controlled.
-              Any changes made here will be lost the next time a site is deployed.
+              Any changes made here will be lost the next time this site is deployed.
             </div>
           </div>
 EODIALOG;
