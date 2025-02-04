@@ -2,7 +2,7 @@ name: Hide configuration menus
 type: module
 description: "Adds configuration setting to allow several common configuration links to be hidden in the admin for sites where configuration is stored in VCS"
 package: Administration
-core_version_requirement: ^8.8 || ^9 || ^10
+core_version_requirement: ^8.8 || ^9 || ^10 || ^11
 author: Cyberitas Technologies, LLC.
 version: '2.0.0'
 dependencies:
